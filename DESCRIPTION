@@ -1,7 +1,7 @@
 Package: radnet
 Type: Package
 Title: Fetch information from avoindata.net RESTful API
-Version: 0.0.1
+Version: 0.1
 Date: 2013-07-15
 Author: Joona Lehtomäki
 Maintainer: Joona Lehtomäki <joona.lehtomaki@gmail.com>
@@ -13,3 +13,4 @@ Collate:
     'options.R'
     'radnet-internal.R'
     'tags.R'
+    'categories.R'

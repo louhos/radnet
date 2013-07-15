@@ -9,11 +9,11 @@
 #' @importFrom httr content
 #' @export
 #' @examples
-#' tags <- get_tags()
+#' tags <- taginfo()
 #' @note Should the results be cached?
 
-gettags <- function(){
-  tags <- httr::content(httr::GET(get('tag.url', envir=cacheEnv)), 
+taginfo <- function(){
+  tags <- httr::content(httr::GET(get('tags.url', envir=cacheEnv)), 
                         as='parsed') 
   tags <- do.call(rbind.data.frame, tags[[1]])
   rownames(tags) <- NULL
@@ -27,7 +27,7 @@ gettags <- function(){
 #' 
 #' @param name String. Name of the tag used.
 #' @param id integer or String. Wordid that can be used alternatively.
-#' @return A list of tag items. Each item has attributes title, count, and wordid
+#' @return A DataFrame of tag items. Each row has attributes title, count, and wordid
 #' 
 #' @note Name takes precedence over id. If both are provided, id is only tried if name fails.
 #' 
@@ -35,18 +35,18 @@ gettags <- function(){
 #' @importFrom httr content
 #' @export
 #' @examples
-#' tags <- get_tags()
+#' tags <- latest_tags()
 
-getlatest <- function(name=NULL, id=NULL) {
+latest_tags <- function(name=NULL, id=NULL) {
   if (is.null(name) && is.null(id)) {
     stop('Either name or ID must be provided.')
   } else if (!is.null(name)) {
-    url <- paste0(get('tag.url', envir=cacheEnv), '/title/', name)
+    url <- paste0(get('tags.url', envir=cacheEnv), '/title/', name)
   } else if (is.null(name) && !is.null(id)) {
-    url <- paste0(get('tag.url', envir=cacheEnv), '/id/', id)
+    url <- paste0(get('tags.url', envir=cacheEnv), '/id/', id)
   }
   
-  questions <- content(GET(url), as='parsed')
+  questions <- httr::content(httr::GET(url), as='parsed')
   if (length(questions[[1]]) == 0) {
     stop(paste('Empty response with url:', url))
   } else {
@@ -67,6 +67,6 @@ getlatest <- function(name=NULL, id=NULL) {
 #' @examples
 #' tags <- tagnames()
 tagnames <- function() {
-  tags <- gettags()
-  return(sapply(tags[[1]], function(x) {x$title}))
+  tags <- taginfo()
+  return(as.character(tags$title))
 }
