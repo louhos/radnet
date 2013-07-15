@@ -1,9 +1,9 @@
 Package: radnet
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
+Title: Fetch information from avoindata.net RESTful API
+Version: 0.0.1
 Date: 2013-07-15
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
+Author: Joona Lehtomäki
+Maintainer: Joona Lehtomäki <joona.lehtomaki@gmail.com>
 Description: More about what it does (maybe more than one line)
-License: What license is it under?
+License: MIT
