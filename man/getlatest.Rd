@@ -2,7 +2,7 @@
 \alias{getlatest}
 \title{Get latest 10 questions labelled with a given tag.}
 \usage{
-  getlatest(name = NULL, ID = NULL)
+  getlatest(name = NULL, id = NULL)
 }
 \arguments{
   \item{name}{String. Name of the tag used.}

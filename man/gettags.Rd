@@ -5,11 +5,14 @@
   gettags()
 }
 \value{
-  A list of tag items. Each item has attributes title,
-  count, and wordid
+  A DataFrame with each row containg columns title, count,
+  and wordid
 }
 \description{
   Get all the tags, counts, and wordids.
+}
+\note{
+  Should the results be cached?
 }
 \examples{
 tags <- get_tags()

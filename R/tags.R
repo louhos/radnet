@@ -3,16 +3,21 @@
 #' @keywords avoindata, tags
 #' @author Joona Lehtomäki <joona.lehtomaki@@gmail.com>
 #'
-#' @return A list of tag items. Each item has attributes title, count, and wordid
+#' @return A DataFrame with each row containg columns title, count, and wordid
 #'
 #' @importFrom httr GET
 #' @importFrom httr content
 #' @export
 #' @examples
 #' tags <- get_tags()
+#' @note Should the results be cached?
 
 gettags <- function(){
-  return(content(GET(get('tag.url', envir=cacheEnv)), as='parsed'))
+  tags <- httr::content(httr::GET(get('tag.url', envir=cacheEnv)), 
+                        as='parsed') 
+  tags <- do.call(rbind.data.frame, tags[[1]])
+  rownames(tags) <- NULL
+  return(tags)
 }
 
 #' Get latest 10 questions labelled with a given tag.
@@ -32,19 +37,21 @@ gettags <- function(){
 #' @examples
 #' tags <- get_tags()
 
-getlatest <- function(name=NULL, ID=NULL) {
-  if (is.null(name) && is.null(ID)) {
+getlatest <- function(name=NULL, id=NULL) {
+  if (is.null(name) && is.null(id)) {
     stop('Either name or ID must be provided.')
   } else if (!is.null(name)) {
     url <- paste0(get('tag.url', envir=cacheEnv), '/title/', name)
-  } else if (is.null(name) && !is.null(ID)) {
-    url <- paste0(get('tag.url', envir=cacheEnv), '/id/', ID)
+  } else if (is.null(name) && !is.null(id)) {
+    url <- paste0(get('tag.url', envir=cacheEnv), '/id/', id)
   }
   
   questions <- content(GET(url), as='parsed')
   if (length(questions[[1]]) == 0) {
     stop(paste('Empty response with url:', url))
   } else {
+    questions <- do.call(rbind.data.frame, questions[[1]])
+    rownames(questions) <- NULL
     return(questions)
   }
 }
