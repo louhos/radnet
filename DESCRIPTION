@@ -7,3 +7,9 @@ Author: Joona Lehtomäki
 Maintainer: Joona Lehtomäki <joona.lehtomaki@gmail.com>
 Description: More about what it does (maybe more than one line)
 License: MIT
+Imports:
+    httr
+Collate:
+    'options.R'
+    'radnet-internal.R'
+    'tags.R'

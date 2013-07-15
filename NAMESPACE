@@ -1,1 +1,5 @@
-exportPattern("^[[:alpha:]]+")
+export(getlatest)
+export(gettags)
+export(tagnames)
+importFrom(httr,GET)
+importFrom(httr,content)
