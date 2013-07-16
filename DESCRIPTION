@@ -10,7 +10,6 @@ License: MIT
 Imports:
     httr
 Collate:
-    'options.R'
     'radnet-internal.R'
     'tags.R'
     'categories.R'
