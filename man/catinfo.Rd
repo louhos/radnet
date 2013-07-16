@@ -18,7 +18,10 @@
 categories <- catinfo()
 }
 \author{
-  Joona Lehtomäki <joona.lehtomaki@gmail.com>
+  Joona Lehtomaki <joona.lehtomaki@gmail.com>
+}
+\seealso{
+  response2df
 }
 \keyword{avoindata,}
 \keyword{categories}

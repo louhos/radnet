@@ -14,7 +14,7 @@
 tags <- tagnames()
 }
 \author{
-  Joona Lehtomäki <joona.lehtomaki@gmail.com>
+  Joona Lehtomaki <joona.lehtomaki@gmail.com>
 }
 \keyword{avoindata,}
 \keyword{tags}

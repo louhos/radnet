@@ -22,10 +22,10 @@
   is only tried if name fails.
 }
 \examples{
-tags <- latest_tags()
+tags <- latest_tags('Tampere')
 }
 \author{
-  Joona Lehtomäki <joona.lehtomaki@gmail.com>
+  Joona Lehtomaki <joona.lehtomaki@gmail.com>
 }
 \keyword{avoindata,}
 \keyword{tags}

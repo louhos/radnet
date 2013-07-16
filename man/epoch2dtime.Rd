@@ -19,7 +19,7 @@ epoch2dtime(1367244015)
 "2013-04-29 17:00:15 EEST"
 }
 \author{
-  Joona Lehtomäki <joona.lehtomaki@gmail.com>
+  Joona Lehtomaki <joona.lehtomaki@gmail.com>
 }
 \keyword{dates,}
 \keyword{time}

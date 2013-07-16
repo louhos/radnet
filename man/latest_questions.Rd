@@ -5,7 +5,8 @@
   latest_questions(category.id, limit = 100)
 }
 \arguments{
-  \item{id}{integer or String. catid of a category.}
+  \item{category.id}{integer or String. catid of a
+  category.}
 
   \item{limit}{integer. Maximum number of query items
   returned (default and max=100)}
@@ -19,14 +20,15 @@
   category.
 }
 \examples{
-questions <- latest_questions()
+questions <- latest_questions(27)
 }
 \author{
-  Joona Lehtomäki <joona.lehtomaki@gmail.com>
+  Joona Lehtomaki <joona.lehtomaki@gmail.com>
 }
 \seealso{
   catinfo
 }
 \keyword{avoindata,}
-\keyword{categories}
+\keyword{categories,}
+\keyword{questions}
 

@@ -3,8 +3,8 @@ Type: Package
 Title: Fetch information from avoindata.net RESTful API
 Version: 0.1.0
 Date: 2013-07-15
-Author: Joona Lehtomäki
-Maintainer: Joona Lehtomäki <joona.lehtomaki@gmail.com>
+Author: Joona Lehtomaki
+Maintainer: Joona Lehtomaki <joona.lehtomaki@gmail.com>
 Description: More about what it does (maybe more than one line)
 License: MIT
 Imports:
@@ -14,3 +14,4 @@ Collate:
     'tags.R'
     'categories.R'
     'utilities.R'
+    'questions.R'
