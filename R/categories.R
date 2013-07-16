@@ -65,6 +65,9 @@ latest_questions <- function(category.id, limit=100) {
     }
     questions <- do.call(rbind.data.frame, questions[[1]])
     rownames(questions) <- NULL
+    # Convert the epochs to ISO 8601 date format
+    questions$created <- epoch2dtime(questions$created)
+    
     return(questions)
   }
 }
