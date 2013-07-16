@@ -9,7 +9,7 @@ So far the following API GET methods are implemented:
 2. Yhden tagin 10 viimeisintä kysymystä (haku nimellä)
 3. Yhden tagin 10 viimeisintä kysymystä (haku ID:llä)
 4. Kategoriat ja niiden kysymysmäärät
-5. Yhden kategorian kysymykset (haku ID:llä
+5. Yhden kategorian kysymykset (haku ID:llä)
 
 ### Install
 
