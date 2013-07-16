@@ -1,3 +1,4 @@
+options(stringsAsFactors=FALSE)
 #' Get all the tags, counts, and wordids.
 #'
 #' @keywords avoindata, tags
