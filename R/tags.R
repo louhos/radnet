@@ -27,8 +27,6 @@ taginfo <- function(){
 #' 
 #' @note Name takes precedence over id. If both are provided, id is only tried if name fails.
 #' 
-#' @importFrom httr GET
-#' @importFrom httr content
 #' @export
 #' @examples
 #' tags <- latest_tags('Tampere')

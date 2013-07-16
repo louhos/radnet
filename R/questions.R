@@ -49,18 +49,16 @@ latest_questions <- function(category.id, limit=100) {
   }
 }
 
-#' Get the amount of quesitions per day.
+#' Get the amount of questions per day.
 #'
 #' @keywords avoindata, categories, questions
 #' @author Joona Lehtomaki <joona.lehtomaki@@gmail.com>
 #' 
 #' @return A DataFrame. Each row has a count and date column.
 #' 
-#' @importFrom httr GET
-#' @importFrom httr content
 #' @export
 #' @examples
 #' nq <- nquestions()
 nquestions <- function() {
-  
+  return(response2df(get('questions.url', envir=urlEnv)))
 }
