@@ -13,3 +13,4 @@ Collate:
     'radnet-internal.R'
     'tags.R'
     'categories.R'
+    'utilities.R'

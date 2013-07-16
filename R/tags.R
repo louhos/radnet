@@ -53,6 +53,9 @@ latest_tags <- function(name=NULL, id=NULL) {
   } else {
     questions <- do.call(rbind.data.frame, questions[[1]])
     rownames(questions) <- NULL
+    # Convert the epochs to ISO 8601 date format
+    questions$created <- epoch2dtime(questions$created)
+    questions$updated <- epoch2dtime(questions$updated)
     return(questions)
   }
 }
