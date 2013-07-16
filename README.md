@@ -4,11 +4,12 @@
 
 Please note that the API is still under development and may go though changes.
 So far the following API GET methods are implemented:  
-`Tagit ja niiden kysymysmäärät` 
-`Yhden tagin 10 viimeisintä kysymystä (haku nimellä)`  
-`Yhden tagin 10 viimeisintä kysymystä (haku ID:llä)`  
-`Kategoriat ja niiden kysymysmäärät`  
-`Yhden kategorian kysymykset (haku ID:llä`  
+
+1. Tagit ja niiden kysymysmäärät
+2. Yhden tagin 10 viimeisintä kysymystä (haku nimellä)
+3. Yhden tagin 10 viimeisintä kysymystä (haku ID:llä)
+4. Kategoriat ja niiden kysymysmäärät
+5. Yhden kategorian kysymykset (haku ID:llä
 
 ### Install
 
