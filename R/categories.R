@@ -54,12 +54,17 @@ latest_questions <- function(category.id, limit=100) {
   if (length(questions[[1]]) == 0) {
     stop(paste('Empty response with url:', url))
   } else {
-    # FIXME: waiting for answer if the JSON response can 
-    # be restructured
-    #questions <- do.call(rbind.data.frame, questions[[1]])
-    #rownames(questions) <- NULL
-    #return(questions)
-    return(NULL)
+    # Handle tags (can be several as an array)
+    for (i in 1:length(questions[[1]])) {
+      tags <- questions[[1]][[i]]$tags
+      if (is.null(tags) || tags == 'NULL') {
+        tags <- ''
+      }
+      questions[[1]][[i]]$tags <- paste(tags, collapse=', ')
+    }
+    questions <- do.call(rbind.data.frame, questions[[1]])
+    rownames(questions) <- NULL
+    return(questions)
   }
 }
 
