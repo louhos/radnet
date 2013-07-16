@@ -10,6 +10,8 @@ So far the following API GET methods are implemented:
 3. Yhden tagin 10 viimeisintä kysymystä (haku ID:llä)
 4. Kategoriat ja niiden kysymysmäärät
 5. Yhden kategorian kysymykset (haku ID:llä)
+6. Vastausmäärät päivän tarkkuudella
+7. Kysymysmäärät päivän tarkkuudella
 
 ### Install
 
