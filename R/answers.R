@@ -7,8 +7,8 @@
 #' 
 #' @export
 #' @examples
-#' nq <- nanswers()
+#' na <- count_answers()
 #' @seealso response2df nquestions
-count.answers <- function() {
+count_answers <- function() {
   return(response2df(get('answers.url', envir=urlEnv)))
 }

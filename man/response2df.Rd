@@ -3,10 +3,13 @@
 \title{Retrieve a repsonse from a specified URL and convert it to a
 DataFrame.}
 \usage{
-  response2df(url)
+  response2df(url, tags = FALSE)
 }
 \arguments{
   \item{url}{String url}
+
+  \item{tags}{boolean indicating whether repsonse has tags
+  to be collapsed (default: FALSE)}
 }
 \value{
   A DataFrame from the response

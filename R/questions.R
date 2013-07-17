@@ -5,7 +5,7 @@
 #' 
 #' @param category.id integer or String. catid of a category.
 #' @param limit integer. Maximum number of query items returned (default and max=100)
-#' @return A list of tag items. Each item has attributes title, count, and wordid
+#' @return A DataFrame of tags. Each row has columns title, count, and wordid
 #' 
 #' @importFrom httr GET
 #' @importFrom httr content
@@ -25,27 +25,68 @@ latest_questions <- function(category.id, limit=100) {
   
   url <- paste0(get('categories.url', envir=urlEnv), '/id/',
                 category.id, '?limit=', limit)
-  
-  questions <- httr::content(httr::GET(url), as='parsed')
-  
-  if (length(questions[[1]]) == 0) {
-    stop(paste('Empty response with url:', url))
-  } else {
-    # Handle tags (can be several as an array)
-    for (i in 1:length(questions[[1]])) {
-      tags <- questions[[1]][[i]]$tags
-      if (is.null(tags) || tags == 'NULL') {
-        tags <- ''
-      }
-      questions[[1]][[i]]$tags <- paste(tags, collapse=', ')
-    }
-    questions <- do.call(rbind.data.frame, questions[[1]])
-    rownames(questions) <- NULL
-    # Convert the epochs to ISO 8601 date format
-    questions$created <- epoch2dtime(questions$created)
     
-    return(questions)
+  questions <- response2df(url, tags=TRUE)
+  # Convert the epochs to ISO 8601 date format
+  questions$created <- epoch2dtime(questions$created)
+  
+  return(questions)
+}
+
+#' Get all the questions asked during a month/year.
+#'
+#' Providing just a month number [1, 12] will assume current year.
+#' Future years are excluded, but historically there are no restrictions.
+#' However, years <2013 probably do not return anything.
+#'
+#' @keywords avoindata, categories, questions
+#' @author Joona Lehtomaki <joona.lehtomaki@@gmail.com>
+#' 
+#' @param month integer or String. Number of the month [1, 12].
+#' @param year integer or String. Year (default: NULL), if none 
+#'    is provided assume current year.
+#' @return A DataFrame of questions which as following columns:
+#' \item{title}{Questions title.}
+#' \item{id}{ID number.}
+#' \item{view_count}{How many times has the question been viewed.}
+#' \item{votes}{Number of votes.}
+#' \item{created}{Creation date.}
+#' \item{updated}{Update time (0=has not been updated).}
+#' \item{answer_count}{Number of answers.}
+#' \item{url}{URL of the question.}
+#' \item{tags}{Tags associated with the question.}
+#' 
+#' @importFrom httr GET
+#' @importFrom httr content
+#' @export
+#' @examples
+#' this.mar <- questions_in(month=5)
+#' mar.2013 <- questions_in(month=5, year=2013)
+#' @seealso catinfo
+questions_in <- function(month, year=NULL) {
+  month  <- as.numeric(month)
+  # First check that the month number is proper
+  if (!month %in% 1:12) {
+    stop(paste('Month number must be between 1 and 12'))
   }
+  # Then check the year, if provided.
+  if (!is.null(year)) {
+    year <- as.numeric(year)
+    current.year <- as.numeric(format(Sys.time(), "%Y"))
+    if (year > current.year) {
+      stop(paste0('Year cannot be from the future (', current.year, ')'))
+    }
+    url <- paste0(get('questions.url', envir=urlEnv), '/', year, '/', month)
+  } else {
+    url <- paste0(get('questions.url', envir=urlEnv), '/month/', month)
+  }
+  
+  questions <- response2df(url, tags=TRUE)
+  # Convert the epochs to ISO 8601 date format
+  questions$created <- epoch2dtime(questions$created)
+  questions$updated <- epoch2dtime(questions$updated)
+    
+  return(questions)
 }
 
 #' Get the amount of questions per day.
@@ -57,7 +98,7 @@ latest_questions <- function(category.id, limit=100) {
 #' 
 #' @export
 #' @examples
-#' nq <- nquestions()
+#' nq <- count_questions()
 #' #' @seealso response2df nanswers
 count_questions <- function() {
   return(response2df(get('questions.url', envir=urlEnv)))

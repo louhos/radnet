@@ -1,26 +1,25 @@
-\name{nquestions}
-\alias{nquestions}
-\title{Get the amount of questions per day.}
+\name{count_answers}
+\alias{count_answers}
+\title{Get the amount of answers per day.}
 \usage{
-  nquestions()
+  count_answers()
 }
 \value{
   A DataFrame. Each row has a count and date column.
 }
 \description{
-  Get the amount of questions per day.
+  Get the amount of answers per day.
 }
 \examples{
-nq <- nquestions()
-#'
+na <- count_answers()
 }
 \author{
   Joona Lehtomaki <joona.lehtomaki@gmail.com>
 }
 \seealso{
-  response2df nanswers
+  response2df nquestions
 }
+\keyword{answers}
 \keyword{avoindata,}
 \keyword{categories,}
-\keyword{questions}
 

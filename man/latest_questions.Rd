@@ -12,8 +12,8 @@
   returned (default and max=100)}
 }
 \value{
-  A list of tag items. Each item has attributes title,
-  count, and wordid
+  A DataFrame of tags. Each row has columns title, count,
+  and wordid
 }
 \description{
   Get questions (max 100) questions related to a single
