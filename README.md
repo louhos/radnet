@@ -22,5 +22,5 @@ So far the following API GET methods are implemented:
 For installing radnet you need [devtools](https://github.com/hadley/devtools).
 
 ```
-install_github('radnet', 'jlehtoma')
+install_github('radnet', 'louhos')
 ```
