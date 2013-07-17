@@ -60,6 +60,6 @@ latest_questions <- function(category.id, limit=100) {
 #' @examples
 #' nq <- nquestions()
 #' #' @seealso response2df nanswers
-nquestions <- function() {
+count.questions <- function() {
   return(response2df(get('questions.url', envir=urlEnv)))
 }
