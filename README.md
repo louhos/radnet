@@ -14,6 +14,8 @@ So far the following API GET methods are implemented:
 7. Kysymysmäärät päivän tarkkuudella
 8. Yhden kuukauden kysymykset
 9. Tietyn vuoden yhden kuukauden kysymykset
+10. Palvelun käyttäjät
+11. Yhden käyttäjän (haku ID:llä) kysymykset
 
 ### Install
 

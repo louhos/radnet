@@ -16,3 +16,4 @@ Collate:
     'utilities.R'
     'questions.R'
     'answers.R'
+    'users.R'
