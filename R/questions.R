@@ -13,7 +13,6 @@
 #' @examples
 #' questions <- latest_questions(27)
 #' @seealso catinfo
-
 latest_questions <- function(category.id, limit=100) {
   # First check that the category id is found
   categories <- catinfo()
