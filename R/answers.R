@@ -9,6 +9,6 @@
 #' @examples
 #' nq <- nanswers()
 #' @seealso response2df nquestions
-nanswers <- function() {
+count_answers <- function() {
   return(response2df(get('answers.url', envir=urlEnv)))
 }
