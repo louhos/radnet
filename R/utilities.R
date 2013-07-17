@@ -37,6 +37,7 @@ response2df <- function(url, tags=FALSE) {
                               as='parsed') 
   if (length(response.list[[1]]) == 0) {
     warning(paste('Empty response with url:', url))
+    return(NULL)
   } else {
     if (tags) {
       for (i in 1:length(response.list[[1]])) {

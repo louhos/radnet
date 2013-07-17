@@ -1,4 +1,4 @@
-#' Get questions (max 100) questions related to a single category.
+#' Get questions (max 100) related to a single category.
 #'
 #' @keywords avoindata, categories, questions
 #' @author Joona Lehtomaki <joona.lehtomaki@@gmail.com>
@@ -7,12 +7,11 @@
 #' @param limit integer. Maximum number of query items returned (default and max=100)
 #' @return A DataFrame of tags. Each row has columns title, count, and wordid
 #' 
-#' @importFrom httr GET
-#' @importFrom httr content
 #' @export
 #' @examples
 #' questions <- latest_questions(27)
-#' @seealso catinfo
+#' questions <- latest_questions(27, limit=10)
+#' @seealso catinfo response2df
 latest_questions <- function(category.id, limit=100) {
   # First check that the category id is found
   categories <- catinfo()

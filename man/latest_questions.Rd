@@ -1,6 +1,6 @@
 \name{latest_questions}
 \alias{latest_questions}
-\title{Get questions (max 100) questions related to a single category.}
+\title{Get questions (max 100) related to a single category.}
 \usage{
   latest_questions(category.id, limit = 100)
 }
@@ -16,17 +16,17 @@
   and wordid
 }
 \description{
-  Get questions (max 100) questions related to a single
-  category.
+  Get questions (max 100) related to a single category.
 }
 \examples{
 questions <- latest_questions(27)
+questions <- latest_questions(27, limit=10)
 }
 \author{
   Joona Lehtomaki <joona.lehtomaki@gmail.com>
 }
 \seealso{
-  catinfo
+  catinfo response2df
 }
 \keyword{avoindata,}
 \keyword{categories,}
